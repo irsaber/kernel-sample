@@ -48,6 +48,9 @@ static void our_work_function(struct work_struct *samvoid){
 }
 
 
+//here we there's no need to define my_our_work, BUT if defined NO PROBLEM.
+//important thins is that our_work_function should have a specific prototypes.
+// static void our_work_function(struct work_struct *samvoid)
 static DECLARE_WORK(my_our_work, our_work_function);
 //This function calls on demand of read request from seq_files
 static int proc_show(struct seq_file *m, void *v){
