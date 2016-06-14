@@ -1,5 +1,6 @@
-obj-m += tasklet.o
-obj-m += jiffie.o
+#obj-m += tasklet.o
+#obj-m += jiffie.o
+obj-m += workqueue_test.o
 
 all:
 	make -C /lib/modules/$(shell uname -r)/build M=$(PWD) modules
