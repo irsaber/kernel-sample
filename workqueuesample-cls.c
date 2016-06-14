@@ -34,6 +34,8 @@ MODULE_DESCRIPTION("This is just a simple ProcFS module which workqueues for edu
 
 //Creating a proc directory entry structure
 static struct proc_dir_entry *our_proc_file;
+// there is no need to be declared, BUT if declared as static
+//we should define static DECLARE_WORK(...);
 static struct work_struct my_our_work;
 
 //Here are some useful variables
