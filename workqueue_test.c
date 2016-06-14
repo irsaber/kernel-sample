@@ -2,6 +2,7 @@
 #include <linux/module.h>
 #include <linux/interrupt.h>
 #include <linux/jiffies.h>
+#include <linux/slab.h>
 #include <linux/timer.h>
 
 MODULE_LICENSE("GPL");
@@ -26,10 +27,14 @@ static void my_wq_function( struct work_struct *work) {
 
 int init_module(void)
 {
+	//warning: ISO C90 forbids mixed declarations and code
+	//because of that, we have to move the variable declaration to top of
+	//block.
+	int ret;
+
 	printk("===============\n");
 	printk("module started\n");
 
-	int ret;
 
 	my_wq = create_workqueue("my_queue");
 
