@@ -6,7 +6,7 @@
 #include <unistd.h>
 #include <sys/ioctl.h>
 
-ioctl_set_msg (int file_desc, char *message)
+void ioctl_set_msg (int file_desc, char *message)
 {
 	int ret_val;
 
@@ -18,7 +18,7 @@ ioctl_set_msg (int file_desc, char *message)
 	}
 }
 
-ioctl_get_msg (int file_desc)
+void ioctl_get_msg (int file_desc)
 {
 	int ret_val;
 	char message[100];
@@ -33,7 +33,7 @@ ioctl_get_msg (int file_desc)
 	printf("get_msg message: %s \n", message);
 }
 
-ioctl_get_nth_byte (int file_desc)
+void ioctl_get_nth_byte (int file_desc)
 {
 	int i;
 	char c;
@@ -45,8 +45,8 @@ ioctl_get_nth_byte (int file_desc)
 		c = ioctl(file_desc, IOCTL_GET_NTH_BYTE, i++);
 
 		if (c < 0) {
-			printf(" ioctl_get_nth_byte failed at the %d'th byte:
-			       \n", i);
+			printf(" ioctl_get_nth_byte failed at the %d'th byte:\n \
+			       ", i);
 			exit(-1);
 		}
 
@@ -61,7 +61,7 @@ int main() {
 
 	file_desc = open(DEVICE_FILE_NAME, 0);
 	if (file_desc < 0) {
-		printf("Can't open device file: %d\n", DEVICE_FILE_NAME);
+		printf("Can't open device file: %s\n", DEVICE_FILE_NAME);
 		exit(-1);
 	}
 
@@ -71,4 +71,5 @@ int main() {
 
 	close(file_desc);
 
+	return 0;
 }
