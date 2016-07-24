@@ -1,3 +1,6 @@
+//http://www.linuxjournal.com/article/6872?page=0,0
+//Driving Me Nuts - Device Classes Aug 01, 2003  By Greg Kroah-Hartman
+
 #include <linux/module.h> //We need this header in all kernel modules
 #include <linux/kernel.h> //Absolutely because we are doing kernel job
 #include <linux/init.h> //And this is needed for the macros
